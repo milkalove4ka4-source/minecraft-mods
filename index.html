@@ -14,7 +14,7 @@
     }
     header {
       background-color: #2e7d32;
-      padding: 20px;
+      padding: 25px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
     h1 {
@@ -23,14 +23,23 @@
       color: #caff91;
       text-shadow: 2px 2px #000;
     }
-    .content {
-      padding: 30px;
+    section {
+      padding: 40px 0;
+    }
+    section h2 {
+      color: #76ff03;
+      text-shadow: 1px 1px #000;
+      margin-bottom: 20px;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
     }
     .card {
-      display: inline-block;
-      width: 260px;
+      width: 250px;
       background: #3a3a3a;
-      margin: 15px;
       border-radius: 10px;
       padding: 15px;
       box-shadow: 0 0 15px rgba(0,0,0,0.4);
@@ -39,12 +48,8 @@
       width: 100%;
       border-radius: 8px;
     }
-    .card h3 {
-      color: #76ff03;
-    }
-    .card p {
-      color: #ddd;
-    }
+    .card h3 { color: #76ff03; }
+    .card p { color: #ddd; font-size: 0.9em; }
     .btn {
       display: inline-block;
       margin-top: 10px;
@@ -55,41 +60,65 @@
       text-decoration: none;
       transition: background 0.3s;
     }
-    .btn:hover {
-      background-color: #66bb6a;
-    }
+    .btn:hover { background-color: #66bb6a; }
     footer {
-      margin-top: 30px;
-      padding: 15px;
       background-color: #1b5e20;
       color: #ccc;
-      font-size: 0.9em;
+      padding: 15px;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Моды и ресурспаки для Minecraft</h1>
+    <h1>Моды, ресурспаки и шейдеры для Minecraft</h1>
   </header>
 
-  <div class="content">
-    <div class="card">
-      <img src="https://i.imgur.com/E3lq9mN.png" alt="Super Tools">
-      <h3>💎 Super Tools</h3>
-      <p>Добавляет новые инструменты и броню.</p>
-      <a href="mods/supertools.zip" class="btn" download>Скачать</a>
-    </div>
+  <section id="mods">
+    <h2>🧱 Моды</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://i.imgur.com/E3lq9mN.png" alt="Super Tools">
+        <h3>💎 Super Tools</h3>
+        <p>Добавляет новые инструменты и броню.</p>
+        <a href="mods/supertools.zip" class="btn" download>Скачать</a>
+      </div>
 
-    <div class="card">
-      <img src="https://i.imgur.com/Y1vA6Jd.png" alt="RealTextures">
-      <h3>🎨 RealTextures</h3>
-      <p>Улучшенные текстуры блоков.</p>
-      <a href="resourcepacks/realtextures.zip" class="btn" download>Скачать</a>
+      <div class="card">
+        <img src="https://i.imgur.com/6ohAqK7.png" alt="More Mobs">
+        <h3>👾 More Mobs</h3>
+        <p>Добавляет новых мобов в игру.</p>
+        <a href="mods/moremobs.zip" class="btn" download>Скачать</a>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section id="resourcepacks">
+    <h2>🎨 Ресурс-паки</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://i.imgur.com/Y1vA6Jd.png" alt="RealTextures">
+        <h3>RealTextures</h3>
+        <p>Улучшенные текстуры блоков.</p>
+        <a href="resourcepacks/realtextures.zip" class="btn" download>Скачать</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="shaders">
+    <h2>🌅 Шейдеры</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://i.imgur.com/a7f0f1K.png" alt="Sunny Shaders">
+        <h3>Sunny Shaders</h3>
+        <p>Делает освещение и тени более реалистичными.</p>
+        <a href="shaders/sunnyshaders.zip" class="btn" download>Скачать</a>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    <p>© 2025 Minecraft Mods Hub | Создано с любовью 💚</p>
+    <p>© 2025 Minecraft Mods Hub | Сделано с любовью 💚</p>
   </footer>
 </body>
 </html>
