@@ -3,171 +3,180 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Моды и ресурспаки для Minecraft</title>
+  <title>Моды для Minecraft</title>
   <style>
     body {
-      font-family: "Segoe UI", sans-serif;
-      background: url('https://wallpapers.com/images/hd/engaging-4k-minecraft-landscape-at-dusk-dtgbrcfkqhozzfrs.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
       margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://i.imgur.com/ftoJYYE.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
       text-align: center;
     }
-    header {
-      background-color: rgba(46, 125, 50, 0.9);
-      padding: 25px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    }
+
     h1 {
+      background-color: #2e7d32;
+      padding: 20px;
       margin: 0;
-      font-size: 2.5em;
-      color: #caff91;
-      text-shadow: 2px 2px #000;
+      color: #fff;
+      font-size: 32px;
     }
-    section {
-      padding: 40px 0;
+
+    .mod-card {
+      background: rgba(0, 0, 0, 0.7);
+      display: inline-block;
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 50px;
+      width: 400px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
     }
-    section h2 {
-      color: #76ff03;
-      text-shadow: 1px 1px #000;
-      margin-bottom: 20px;
-    }
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .card {
-      width: 300px;
-      background: rgba(58, 58, 58, 0.9);
-      border-radius: 10px;
-      padding: 15px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.4);
-      position: relative;
-    }
-    .slider {
+
+    .image-slider {
       position: relative;
       width: 100%;
-      height: 200px;
+      height: 250px;
       overflow: hidden;
-      border-radius: 8px;
+      border-radius: 10px;
     }
-    .slider img {
+
+    .image-slider img {
       width: 100%;
-      height: 200px;
+      height: 100%;
       object-fit: cover;
-      display: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
     }
-    .slider img.active {
-      display: block;
+
+    .image-slider img:hover {
+      transform: scale(1.03);
     }
-    .slider button {
+
+    .slider-buttons {
       position: absolute;
       top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
       transform: translateY(-50%);
-      background-color: rgba(0,0,0,0.5);
-      color: #fff;
+    }
+
+    .slider-buttons button {
+      background: rgba(0,0,0,0.6);
       border: none;
-      font-size: 20px;
-      padding: 8px 12px;
+      color: white;
+      font-size: 24px;
       cursor: pointer;
-      border-radius: 50%;
+      padding: 5px 10px;
+      border-radius: 8px;
+      transition: background 0.2s;
     }
-    .slider button:hover {
-      background-color: rgba(255,255,255,0.3);
+
+    .slider-buttons button:hover {
+      background: rgba(0,0,0,0.9);
     }
-    .prev { left: 10px; }
-    .next { right: 10px; }
-    .card h3 { color: #76ff03; margin-top: 15px; }
-    .card p { color: #ddd; font-size: 0.9em; }
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
+
+    .mod-info {
+      margin-top: 15px;
+    }
+
+    .download-btn {
+      background: #43a047;
+      color: white;
+      border: none;
       padding: 10px 20px;
-      background-color: #4caf50;
-      color: #fff;
-      border-radius: 5px;
-      text-decoration: none;
+      margin-top: 15px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
       transition: background 0.3s;
     }
-    .btn:hover { background-color: #66bb6a; }
-    footer {
-      background-color: rgba(27, 94, 32, 0.9);
-      color: #ccc;
-      padding: 15px;
-      margin-top: 30px;
+
+    .download-btn:hover {
+      background: #2e7d32;
+    }
+
+    /* Полноэкранное изображение */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .modal:hover {
+      cursor: zoom-out;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Моды, ресурспаки и шейдеры для Minecraft</h1>
-  </header>
 
-  <section id="mods">
-    <h2>🧱 Моды</h2>
-    <div class="cards">
-      <div class="card">
-        <div class="slider">
-          <img src="1578822018_dgnnbjm1111.jpg" class="active" alt="MacroKeybinds 1">
-          <img src="1578822085_47s0wtc111.jpg" alt="MacroKeybinds 2">
-          <button class="prev" onclick="prevSlide(this)">&#10094;</button>
-          <button class="next" onclick="nextSlide(this)">&#10095;</button>
-        </div>
-        <h3>⌨️ MacroKeybinds</h3>
-        <p>Позволяет создавать собственные макросы и горячие клавиши в Minecraft.</p>
-        <a href="1.21-MacroKeybinds-fabric-1.3.1.jar" class="btn" download>Скачать</a>
+  <h1>Моды, ресурспаки и шейдеры для Minecraft</h1>
+
+  <div class="mod-card">
+    <h2>🧩 MacroKeybinds</h2>
+    <div class="image-slider">
+      <img id="modImage" src="mods/1578822018_dgnnbjm1111.jpg" alt="MacroKeybinds" onclick="openImage(this.src)">
+      <div class="slider-buttons">
+        <button onclick="prevImage()">&#8592;</button>
+        <button onclick="nextImage()">&#8594;</button>
       </div>
     </div>
-  </section>
 
-  <section id="resourcepacks">
-    <h2>🎨 Ресурс-паки</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="https://i.imgur.com/Y1vA6Jd.png" alt="RealTextures">
-        <h3>RealTextures</h3>
-        <p>Улучшенные текстуры блоков.</p>
-        <a href="resourcepacks/realtextures.zip" class="btn" download>Скачать</a>
-      </div>
+    <div class="mod-info">
+      <p>Позволяет создавать собственные макросы и горячие клавиши в Minecraft.</p>
+      <button class="download-btn" onclick="window.location.href='1.21-MacroKeybinds-fabric-1.3.1.jar'">Скачать</button>
     </div>
-  </section>
+  </div>
 
-  <section id="shaders">
-    <h2>🌅 Шейдеры</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="https://i.imgur.com/a7f0f1K.png" alt="Sunny Shaders">
-        <h3>Sunny Shaders</h3>
-        <p>Делает освещение и тени более реалистичными.</p>
-        <a href="shaders/sunnyshaders.zip" class="btn" download>Скачать</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Minecraft Mods Hub | Сделано с любовью 💚</p>
-  </footer>
+  <!-- Модальное окно (зум картинки) -->
+  <div id="imageModal" class="modal" onclick="closeImage()">
+    <img class="modal-content" id="fullImage">
+  </div>
 
   <script>
-    function nextSlide(btn) {
-      const slider = btn.parentElement;
-      const images = slider.querySelectorAll('img');
-      let current = Array.from(images).findIndex(img => img.classList.contains('active'));
-      images[current].classList.remove('active');
-      current = (current + 1) % images.length;
-      images[current].classList.add('active');
+    const images = [
+      "mods/1578822018_dgnnbjm1111.jpg",
+      "mods/1578822085_47s0wtc111.jpg"
+    ];
+    let currentIndex = 0;
+
+    function showImage(index) {
+      document.getElementById("modImage").src = images[index];
     }
 
-    function prevSlide(btn) {
-      const slider = btn.parentElement;
-      const images = slider.querySelectorAll('img');
-      let current = Array.from(images).findIndex(img => img.classList.contains('active'));
-      images[current].classList.remove('active');
-      current = (current - 1 + images.length) % images.length;
-      images[current].classList.add('active');
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    }
+
+    function openImage(src) {
+      document.getElementById("imageModal").style.display = "flex";
+      document.getElementById("fullImage").src = src;
+    }
+
+    function closeImage() {
+      document.getElementById("imageModal").style.display = "none";
     }
   </script>
+
 </body>
 </html>
