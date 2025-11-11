@@ -3,121 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Моды Minecraft</title>
+  <title>Моды для Minecraft</title>
   <style>
     body {
-      background: url('https://cdn.wallpapersafari.com/50/29/DL2g5B.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('foto1212.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: white;
       text-align: center;
     }
 
     h1 {
-      background: rgba(0, 128, 0, 0.8);
+      background-color: #2e7d32;
+      color: #fff;
       padding: 15px;
-      border-radius: 10px;
-      display: inline-block;
-      margin-top: 20px;
+      font-size: 28px;
+      margin: 0;
     }
 
     .mod-card {
-      background: rgba(0, 0, 0, 0.8);
-      width: 500px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 16px;
+      max-width: 420px;
       margin: 50px auto;
-      border-radius: 15px;
       padding: 20px;
-      box-shadow: 0 0 10px black;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
       position: relative;
     }
 
-    .slider {
+    .mod-slider {
       position: relative;
       overflow: hidden;
-      border-radius: 10px;
+      border-radius: 12px;
     }
 
-    .slides img {
+    .mod-slider img {
       width: 100%;
-      height: 300px;
-      object-fit: contain;
-      display: none;
+      height: auto;
+      border-radius: 12px;
     }
 
-    .slides img.active {
-      display: block;
-    }
-
-    .arrow {
+    .slider-button {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 40px;
-      color: white;
-      background: rgba(0,0,0,0.5);
+      background-color: rgba(0, 0, 0, 0.6);
       border: none;
+      color: white;
+      font-size: 24px;
+      padding: 8px 14px;
+      border-radius: 50%;
       cursor: pointer;
-      padding: 5px 10px;
-      border-radius: 5px;
+      transition: background-color 0.3s;
     }
 
-    .arrow.left { left: 10px; }
-    .arrow.right { right: 10px; }
-
-    .download {
-      background: #2ecc71;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      margin-top: 10px;
+    .slider-button:hover {
+      background-color: rgba(0, 0, 0, 0.9);
     }
 
-    .download:hover {
-      background: #27ae60;
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .download-button {
+      background-color: #43a047;
+      color: white;
+      border: none;
+      padding: 10px 30px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .download-button:hover {
+      background-color: #66bb6a;
     }
   </style>
 </head>
 <body>
-  <h1>Моды для Minecraft</h1>
+  <h1>Моды, ресурспаки и шейдеры для Minecraft</h1>
 
   <div class="mod-card">
     <h2>MacroKeybinds</h2>
-    <div class="slider">
-      <button class="arrow left" onclick="prevSlide()">❮</button>
-      <div class="slides">
-        <img src="1578822018_dgnnbjm1111.jpg" class="active" alt="Скриншот 1">
-        <img src="1578822085_47s0wtc111.jpg" alt="Скриншот 2">
-      </div>
-      <button class="arrow right" onclick="nextSlide()">❯</button>
+    <div class="mod-slider">
+      <img id="modImage" src="1578822018_dgnnbjm1111.jpg" alt="MacroKeybinds 1">
+      <button class="slider-button prev" onclick="prevImage()">❮</button>
+      <button class="slider-button next" onclick="nextImage()">❯</button>
     </div>
     <p>Позволяет создавать собственные макросы и горячие клавиши в Minecraft.</p>
-    <a href="1.21-MacroKeybinds-fabric-1.3.1.jar" download>
-      <button class="download">Скачать</button>
-    </a>
+    <button class="download-button" onclick="window.location.href='1.21-MacroKeybinds-fabric-1.3.1.jar'">Скачать</button>
   </div>
 
   <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slides img');
+    const images = [
+      '1578822018_dgnnbjm1111.jpg',
+      '1578822085_47s0wtc111.jpg'
+    ];
+    let current = 0;
+    const imgElement = document.getElementById('modImage');
 
-    function showSlide(index) {
-      slides.forEach(img => img.classList.remove('active'));
-      slides[index].classList.add('active');
+    function nextImage() {
+      current = (current + 1) % images.length;
+      imgElement.src = images[current];
     }
 
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    }
-
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      showSlide(currentSlide);
+    function prevImage() {
+      current = (current - 1 + images.length) % images.length;
+      imgElement.src = images[current];
     }
   </script>
 </body>
