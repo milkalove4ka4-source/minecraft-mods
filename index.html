@@ -3,55 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Моды и ресурспаки для Minecraft</title>
+  <title>Моды для Minecraft</title>
   <style>
     body {
       font-family: "Segoe UI", sans-serif;
-      /* Фон с нужной 5-й картинкой */
       background: url('https://wallpapers.com/images/hd/engaging-4k-minecraft-landscape-at-dusk-dtgbrcfkqhozzfrs.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: rgba(34, 139, 34, 0.95);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+      padding: 15px 0;
       text-align: center;
     }
-    header {
-      background-color: rgba(46, 125, 50, 0.9);
-      padding: 25px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    }
-    h1 {
+    header h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: 2em;
       color: #caff91;
-      text-shadow: 2px 2px #000;
+      text-shadow: 2px 2px 4px #000;
     }
-    section {
-      padding: 40px 0;
+
+    .container {
+      display: flex;
+      flex: 1;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      gap: 20px;
     }
-    section h2 {
+
+    nav {
+      width: 220px;
+      background: rgba(20, 20, 20, 0.8);
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+      height: fit-content;
+    }
+
+    nav h3 {
+      margin-top: 0;
+      color: #76ff03;
+      border-bottom: 1px solid #76ff03;
+      padding-bottom: 5px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav li {
+      margin: 10px 0;
+    }
+
+    nav a {
+      color: #caff91;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    main {
+      flex: 1;
+      background: rgba(40, 40, 40, 0.85);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+    main h2 {
       color: #76ff03;
       text-shadow: 1px 1px #000;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
+
+    .search-box {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .search-box input {
+      width: 70%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      background: rgba(255,255,255,0.9);
+      color: #000;
+      font-size: 1em;
+    }
+
     .cards {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
     }
+
     .card {
-      width: 250px;
+      width: 260px;
       background: rgba(58, 58, 58, 0.9);
       border-radius: 10px;
       padding: 15px;
       box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      transition: transform 0.2s;
     }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
     .card img {
       width: 100%;
       border-radius: 8px;
     }
-    .card h3 { color: #76ff03; }
-    .card p { color: #ddd; font-size: 0.9em; }
+
+    .card h3 {
+      color: #76ff03;
+      margin-top: 10px;
+    }
+
+    .card p {
+      color: #ddd;
+      font-size: 0.9em;
+    }
+
     .btn {
       display: inline-block;
       margin-top: 10px;
@@ -62,55 +152,86 @@
       text-decoration: none;
       transition: background 0.3s;
     }
-    .btn:hover { background-color: #66bb6a; }
+
+    .btn:hover {
+      background-color: #66bb6a;
+    }
+
     footer {
       background-color: rgba(27, 94, 32, 0.9);
-      color: #ccc;
+      text-align: center;
       padding: 15px;
-      margin-top: 30px;
+      color: #ccc;
+      margin-top: auto;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Моды, ресурспаки и шейдеры для Minecraft</h1>
+    <h1>Моды и ресурсы для Minecraft</h1>
   </header>
 
-  <section id="mods">
-    <h2>🧱 Моды</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="https://i.imgur.com/E3lq9mN.png" alt="Super Tools">
-        <h3>💎 Super Tools</h3>
-        <p>Добавляет новые инструменты и броню.</p>
-        <a href="mods/supertools.zip" class="btn" download>Скачать</a>
-      </div>
-    </div>
-  </section>
+  <div class="container">
+    <nav>
+      <h3>Меню</h3>
+      <ul>
+        <li><a href="#mods">Моды</a></li>
+        <li><a href="#resourcepacks">Ресурс-паки</a></li>
+        <li><a href="#shaders">Шейдеры</a></li>
+        <li><a href="#">Сиды</a></li>
+        <li><a href="#">Карты</a></li>
+      </ul>
+    </nav>
 
-  <section id="resourcepacks">
-    <h2>🎨 Ресурс-паки</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="https://i.imgur.com/Y1vA6Jd.png" alt="RealTextures">
-        <h3>RealTextures</h3>
-        <p>Улучшенные текстуры блоков.</p>
-        <a href="resourcepacks/realtextures.zip" class="btn" download>Скачать</a>
+    <main>
+      <div class="search-box">
+        <input type="text" placeholder="🔍 Поиск по модам...">
       </div>
-    </div>
-  </section>
 
-  <section id="shaders">
-    <h2>🌅 Шейдеры</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="https://i.imgur.com/a7f0f1K.png" alt="Sunny Shaders">
-        <h3>Sunny Shaders</h3>
-        <p>Делает освещение и тени более реалистичными.</p>
-        <a href="shaders/sunnyshaders.zip" class="btn" download>Скачать</a>
-      </div>
-    </div>
-  </section>
+      <section id="mods">
+        <h2>🧱 Моды</h2>
+        <div class="cards">
+          <div class="card">
+            <img src="https://i.imgur.com/E3lq9mN.png" alt="Super Tools">
+            <h3>💎 Super Tools</h3>
+            <p>Добавляет новые инструменты и броню.</p>
+            <a href="mods/supertools.zip" class="btn" download>Скачать</a>
+          </div>
+          <div class="card">
+            <img src="https://i.imgur.com/a7f0f1K.png" alt="Nature Expansion">
+            <h3>🌲 Nature Expansion</h3>
+            <p>Расширяет биомы и добавляет новые растения.</p>
+            <a href="mods/natureexp.zip" class="btn" download>Скачать</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="resourcepacks">
+        <h2>🎨 Ресурс-паки</h2>
+        <div class="cards">
+          <div class="card">
+            <img src="https://i.imgur.com/Y1vA6Jd.png" alt="RealTextures">
+            <h3>RealTextures</h3>
+            <p>Улучшенные текстуры блоков и предметов.</p>
+            <a href="resourcepacks/realtextures.zip" class="btn" download>Скачать</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="shaders">
+        <h2>🌅 Шейдеры</h2>
+        <div class="cards">
+          <div class="card">
+            <img src="https://i.imgur.com/a7f0f1K.png" alt="Sunny Shaders">
+            <h3>Sunny Shaders</h3>
+            <p>Делает освещение и тени более реалистичными.</p>
+            <a href="shaders/sunnyshaders.zip" class="btn" download>Скачать</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 
   <footer>
     <p>© 2025 Minecraft Mods Hub | Сделано с любовью 💚</p>
